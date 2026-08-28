@@ -1,0 +1,228 @@
+
+# Smart Property & Facility Management Platform
+
+A backend application built with FastAPI for managing properties, buildings, units, tenants, leases, rent collection, payments, maintenance, utilities, visitors, parking, and facility bookings.
+
+## Tech Stack
+
+- Python 3.10+
+- FastAPI
+- Pydantic
+- SQLAlchemy ORM
+- PostgreSQL / SQLite
+- JWT Authentication
+- Alembic
+- Uvicorn
+- Pytest
+
+## Features
+
+### Authentication & User Management
+
+- JWT authentication
+- Access and refresh tokens
+- Password hashing
+- Role-based authorization
+- Account activation/deactivation
+- Password change
+
+Supported roles:
+
+- Super Admin
+- Property Manager
+- Facility Manager
+- Maintenance Staff
+- Security Staff
+- Tenant
+
+### Property Management
+
+- Create properties
+- Search and filter properties
+- Update properties
+- Soft delete properties
+- Property status management
+
+Supported property types:
+
+- Apartment
+- Villa
+- Commercial
+- Office
+- Warehouse
+
+### Building & Unit Management
+
+- Building management
+- Unit management
+- Unit availability tracking
+- Occupied/available/maintenance status
+- Unit validation
+
+### Tenant Management
+
+- Tenant profiles
+- Tenant search and filtering
+- Tenant rental history
+
+### Lease Management
+
+- Create leases
+- Active lease validation
+- Overlapping lease prevention
+- Lease termination
+- Automatic unit occupancy updates
+
+### Rent & Payment Management
+
+- Rent invoice generation
+- Automatic invoice total calculation
+- Payment processing
+- Duplicate transaction prevention
+- Payment history
+- Invoice balance validation
+
+Invoice total:
+
+`Total = Rent + Late Fee - Discount`
+
+### Maintenance Management
+
+- Maintenance requests
+- Priority management
+- Staff assignment
+- Status tracking
+- Work orders
+- Maintenance audit history
+
+Priorities:
+
+- Low
+- Medium
+- High
+- Emergency
+
+### Utility Management
+
+Supported utilities:
+
+- Electricity
+- Water
+- Gas
+- Internet
+
+Automatic calculations:
+
+`Units Consumed = Current Reading - Previous Reading`
+
+`Amount = Units Consumed × Rate`
+
+### Visitor Management
+
+- Visitor registration
+- Visitor status tracking
+- Check-in
+- Check-out
+- Visitor history
+- Visitor approval notifications
+
+### Parking Management
+
+- Parking slot creation
+- Vehicle assignment
+- Vehicle uniqueness validation
+- Parking release
+- Parking occupancy tracking
+
+### Facility Booking
+
+Supported facilities include:
+
+- Gym
+- Swimming Pool
+- Conference Room
+- Club House
+- Sports Area
+
+Includes:
+
+- Booking management
+- Time overlap prevention
+- Capacity validation
+- Booking confirmation notifications
+
+### Notifications
+
+Implemented using FastAPI BackgroundTasks for:
+
+- Maintenance updates
+- Visitor approval
+- Facility booking confirmation
+
+### Search, Filtering & Pagination
+
+The APIs support filtering, pagination and sorting where implemented.
+
+Common parameters include:
+
+- `page`
+- `limit`
+- `sort_by`
+- `sort_order`
+
+### Dashboard & Analytics
+
+Dashboard APIs provide management statistics including:
+
+- Properties
+- Buildings
+- Units
+- Occupancy
+- Tenants
+- Leases
+- Rent collection
+- Pending/overdue rent
+- Maintenance expenses
+- Utility revenue
+- Parking occupancy
+
+### Security & Data Integrity
+
+- JWT authentication
+- Role-based access control
+- Password hashing
+- Foreign key constraints
+- Unique constraints
+- Database transactions
+- Soft delete
+- Audit logging
+- CORS
+- Rate limiting
+- Input validation
+
+## Project Structure
+
+```text
+smart-property-facility-management/
+│
+├── app/
+│   ├── models/
+│   ├── schemas/
+│   ├── routes/
+│   ├── services/
+│   ├── repositories/
+│   ├── utils/
+│   ├── config.py
+│   ├── database.py
+│   └── main.py
+│
+├── alembic/
+│   └── versions/
+│
+├── tests/
+│
+├── .env.example
+├── .gitignore
+├── alembic.ini
+├── main.py
+└── requirements.txt
